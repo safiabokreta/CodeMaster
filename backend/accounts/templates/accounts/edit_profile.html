@@ -1,0 +1,31 @@
+<!-- backend/accounts/templates/accounts/edit_profile.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+</head>
+<body>
+    <h1>Edit Profile</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="bio">Bio:</label><br>
+        <textarea id="bio" name="bio" rows="4" cols="50">{{ profile.bio }}</textarea><br><br>
+
+        <label for="english_level">English Level:</label><br>
+        <select id="english_level" name="english_level">
+            <option value="Beginner" {% if profile.english_level == "Beginner" %}selected{% endif %}>Beginner</option>
+            <option value="Intermediate" {% if profile.english_level == "Intermediate" %}selected{% endif %}>Intermediate</option>
+            <option value="Advanced" {% if profile.english_level == "Advanced" %}selected{% endif %}>Advanced</option>
+        </select><br><br>
+        
+        <label for="programming_level">Programming Level:</label><br>
+        <select id="programming_level" name="programming_level">
+            <option value="Beginner" {% if profile.programming_level == "Beginner" %}selected{% endif %}>Beginner</option>
+            <option value="Intermediate" {% if profile.programming_level == "Intermediate" %}selected{% endif %}>Intermediate</option>
+            <option value="Advanced" {% if profile.programming_level == "Advanced" %}selected{% endif %}>Advanced</option>
+        </select><br><br>
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'profile' %}">Back to Profile</a>
+</body>
+</html>

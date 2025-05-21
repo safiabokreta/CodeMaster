@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - CodeMaster{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h1>My Learning Dashboard</h1>
+
+    <!-- Language/Course Switcher -->
+    {% if all_courses %}
+    <div class="course-list">
+        {% for course in all_courses %}
+            <a href="?course_id={{ course.ID_course }}" {% if course == selected_course %}style="font-weight:bold; text-decoration:underline;"{% endif %}>
+                {{ course.name }}
+            </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Dashboard for Selected Course -->
+    {% if selected_course %}
+    <div class="selected-course">{{ selected_course.name }}</div>
+    <div class="section-title">Overall Progress</div>
+    <!--
+        Note: The linter may warn about the style attribute below due to the Django template variable.
+        This is standard practice in Django and is safe to ignore.
+    -->
+    <div class="progress-bar">
+        <div class="progress-bar-inner" style="width: {{ overall_progress|default:0 }}%"></div>
+    </div>
+    <div>{{ overall_progress|floatformat:1|default:"0.0" }}%</div>
+
+    <div class="section-title">Current Level</div>
+    <div class="progress-bar">
+        <div class="progress-bar-inner" style="width: {{ current_level|default:0 }}%"></div>
+    </div>
+    <div>{{ current_level|floatformat:1|default:"0.0" }}%</div>
+
+    <div class="section-title">Chapter Progress</div>
+    {% for chapter in chapter_progress %}
+        <div class="chapter-progress">
+            <div class="chapter-title">{{ chapter.name }}</div>
+            <div class="progress-bar">
+                <div class="progress-bar-inner" style="width: {{ chapter.progress|default:0 }}%"></div>
+            </div>
+            <div>{{ chapter.progress|floatformat:1|default:"0.0" }}%</div>
+        </div>
+    {% empty %}
+        <p>No chapters found for this course.</p>
+    {% endfor %}
+    {% else %}
+    <!-- Welcome Message if No Courses -->
+    <div class="section-title">Welcome to CodeMaster!</div>
+    <p>You haven't enrolled in any courses yet. Start your learning journey by exploring our available courses.</p>
+    <a href="{% url 'course_list' %}" class="btn">Browse Courses</a>
+    {% endif %}
+</div>
+{% endblock %} 

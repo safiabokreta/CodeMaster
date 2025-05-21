@@ -1,0 +1,6 @@
+POST http://127.0.0.1:8000/localhost:8000/llm/generate-lecture/
+Content-Type: application/json
+
+{
+    "exercise_id": "912"
+}

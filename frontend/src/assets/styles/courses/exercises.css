@@ -1,0 +1,39 @@
+body {
+  background-color: rgb(3, 19, 68); /* Background color */
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto; /* Allow scrolling */
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw; /* Adjust size */
+  height: 100vh; /* Adjust size */
+  background: url('/src/assets/images/image.svg') center/cover no-repeat;
+  opacity: 0.4; /* Adjust opacity */
+  z-index: -1;
+}
+
+.exercises-page {
+  color: white;
+  height: 90vh; 
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Make the container scrollable */
+.exercises-container {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  overflow-y: auto; /* Enable scrolling inside */
+}

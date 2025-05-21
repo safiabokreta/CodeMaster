@@ -1,0 +1,127 @@
+.navbar-wrapper9 {
+
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 950px;
+}
+
+.profile9-container{
+  display: flex;
+  width: 150px;
+  min-height: 100vh;
+  background-color: #00109a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.labelll9{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.profile9-content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items:flex-start;
+  padding: 90px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  max-width: 700px;
+  height: auto;
+  margin: auto;
+  margin-left: 17rem;
+}
+
+
+
+
+
+.form9-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  width: 200px;
+
+}
+
+.but9{
+  padding-top: 10px;
+  margin-bottom: 0px !important;
+
+}
+.input-field {
+  width:fit-content ;
+  padding: 18px !important; /* Increase padding */
+  border-radius: 10px !important;
+  border: none !important; /* Transparent border */
+  font-family: inherit;
+  resize: none;
+  background-color: #f0f0f0 !important; /* Light background for the input fields */
+}
+
+.input-field:disabled {
+  background-color: #eee !important;
+  color: #888 !important;
+  cursor: not-allowed !important;
+}
+
+.save-btn {
+  background-color: #8b5cf6 !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 25px !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: 0.9s ease !important;
+  margin-bottom: 0px !important;
+
+}
+
+.save-btn:hover {
+  background-color: #6d28d9 !important;
+}
+.labelyll {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.labelllyl{
+  font-size: 15px;
+  margin-bottom: 8px;
+  font-weight: bold;
+
+}
+.input-field {
+  width: 20% !important;         /* Change from 100% to 60% */
+  padding: 10px !important;      /* Reduce padding from 18px to 10px */
+  font-size: 19px !important;    /* Optional: reduce text size */
+  border-radius: 8px !important; /* Optional: make corners slightly smaller */
+}
+
+.profile9-main {
+  display: flex;
+  flex-direction: row;
+  width: auto !important;
+  height:auto !important;
+  padding: 40px !important;
+  padding-top: 10px !important;
+  margin-right: 80px;
+  padding-bottom: 0px !important;
+
+}
+.edit-form9{
+  height: auto !important;
+  margin-bottom: 0px !important;
+  padding-left: 90px;
+}
+
+/* Navbar à droite, sans marge */
+.navbar-wrapper9 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0px 0px 0px -90px;
+}

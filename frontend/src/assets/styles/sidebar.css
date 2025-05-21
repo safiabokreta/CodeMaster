@@ -1,0 +1,186 @@
+/* Main Layout Styles */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #031344;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar Styles (unchanged) */
+.sidebar {
+  width: fit-content;
+  height: 100vh;
+  background-color: #031344;
+  color: #ecf0f1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.sidebar-header {
+  padding: 25px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+.user-info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.user-info p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #bdc3c7;
+}
+
+.dropdown-arrow {
+  margin-left: auto;
+  font-size: 12px;
+  color: #bdc3c7;
+  transition: all 0.3s ease;
+}
+
+.user-profile:hover .dropdown-arrow {
+  color: white;
+  transform: rotate(180deg);
+}
+
+.sidebar-menu {
+  padding: 20px 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sidebar-menu li {
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  margin: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-menu li:not(.logout-item):hover {
+  background-color: white;
+  color: #031344;
+}
+
+.sidebar-menu li:not(.logout-item):hover .icon,
+.sidebar-menu li:not(.logout-item):hover .menu-text {
+  color: #031344;
+}
+
+.sidebar-menu li.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  font-size: 18px;
+}
+
+.menu-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.menu-footer {
+  margin-top: auto;
+  padding-bottom: 20px;
+}
+
+.logout-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.logout-item:hover {
+  background-color: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+}
+
+.logout-item:hover .icon {
+  color: #ff6b6b;
+}
+/* Main Content Area - updated */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+.content-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px; /* Equal small left/right padding */
+}
+
+.rounded-white-container {
+  background-color: white;
+  border-radius: 30px;
+  width: 900px;
+  max-width: calc(100% - 40px); /* Prevents touching edges */
+  height: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Ensures perfect centering */
+}
+
+/* Responsive adjustments - unchanged */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 70px;
+  }
+  .rounded-white-container {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    max-width: calc(100% - 30px); /* Slightly smaller margins on mobile */
+  }
+}

@@ -1,0 +1,55 @@
+body {
+  background-color: rgb(3,19,68); /* Background color */
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw; /* Adjust size */
+  height: 100vh; /* Adjust size */
+  background: url('/src/assets/images/image.svg') center/cover no-repeat;
+  opacity: 0.4; /* Adjust opacity (0 = invisible, 1 = fully visible) */
+  z-index: -1;
+}
+
+.courses-container {
+  margin: 2rem auto ;
+  height: 70vh;
+  overflow-y: auto;
+  padding: 1rem; /* Reduce padding */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.courses-page {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto new lines */
+  justify-content: center; /* Centers items horizontally */
+  align-items: flex-start; /* Aligns items at the top */
+  gap: 2.1rem; /* Controls spacing between items */
+  max-width: 90vw; /* Prevents overflow */
+  width: 100%;
+}
+
+.course-card {
+  flex: 0 1 calc(33.33% - 10px); /* Ensures 3 items per row */
+  margin: 0; /* Removes extra spacing */
+  max-width: 20rem; /* Prevents too wide cards */
+}
+
+
+.course-link {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Keeps the text color unchanged */
+  display: block; /* Ensures it wraps the whole card */
+  width: fit-content; /* Prevents it from expanding */
+}

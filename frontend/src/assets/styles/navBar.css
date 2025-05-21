@@ -1,0 +1,29 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.nav-list {
+  display: flex;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+  list-style: none;
+  padding: 0.5rem 1.3rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: rgb(3,19,68);
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  color:rgb(185,92,255);
+}
+
+

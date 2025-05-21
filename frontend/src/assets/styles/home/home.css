@@ -1,0 +1,15 @@
+/* Ensure the whole home page is scrollable */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto; 
+}
+
+.home-page {
+  min-height: 100vh;
+  overflow-y: auto;
+  position: relative; 
+}
+

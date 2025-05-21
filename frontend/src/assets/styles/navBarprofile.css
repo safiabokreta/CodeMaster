@@ -1,0 +1,31 @@
+.navbarprofile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 0px;
+}
+
+.nav-listprofile {
+  display: flex;
+  background-color: rgb(3,19,68);
+  padding: 0.3rem 1rem;
+  border-radius: 3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-itemprofile {
+
+  list-style: none;
+  padding: 0.2rem 1.3rem;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-itemprofile:hover {
+  color:rgb(185,92,255);
+}
+
+

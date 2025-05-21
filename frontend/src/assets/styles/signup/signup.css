@@ -1,0 +1,385 @@
+/* Signup Page Specific Styles - Scoped to only affect this page */
+.signup-container {
+  display: flex;
+  height: 110vh; /* Minimum full viewport height */
+  background: #031344;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  padding-top: 0px;
+}
+
+.signup-form {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup-image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+}
+
+.signup-image img {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.formm-container {
+  text-align: center;
+  width: 100%;
+}
+
+.formm-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.formm-container h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.inputtt-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  background: transparent;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+.formm-container .icon {
+  color: white;
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.formm-container .placeholder {
+  position: absolute;
+  left: 2rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.formm-container .inputtt-group input {
+  padding-left: 3.5rem;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white !important;
+  font-size: 1rem;
+}
+
+.formm-container input:focus + .placeholder,
+.formm-container input:not(:placeholder-shown) + .placeholder {
+  transform: translateY(-1.25rem);
+  font-size: 0.75rem;
+}
+
+.formm-container .options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+.formm-container .remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.formm-container .remember-me input {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid white;
+  border-radius: 3px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.formm-container .remember-me input:checked {
+  background-color: white;
+}
+
+.formm-container .sign-btn{
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.01rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.formm-container .google-btn {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.formm-container .sign-btn {
+  background: white;
+  color: #031344;
+  font-weight: bold;
+}
+
+.formm-container .sign-btn:hover {
+  background: #f0f0f0;
+}
+
+.formm-container .google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+}
+
+.formm-container .google-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.formm-container .google-icon {
+  font-size: 1.25rem;
+}
+
+.formm-container p {
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 1.2rem;
+  font-size: 0.875rem;
+}
+
+.formm-container a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.formm-container a:hover {
+  text-decoration: underline;
+}
+
+/* Global link style override specific to this page */
+.signup-container :link {
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .signup-form {
+    width: 50%;
+    min-width: 320px;
+  }
+  .signup-image {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .signup-container {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+    min-height: 100vh;
+  }
+  .signup-form,
+  .signup-image {
+    width: 100%;
+    max-width: 100%;
+  }
+  .signup-image {
+    height: auto;
+    position: relative;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .formm-container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 0.5rem;
+  }
+  .formm-container h1 {
+    font-size: 1.3rem;
+  }
+  .formm-container h2 {
+    font-size: 1rem;
+  }
+  .inputtt-group {
+    padding: 0.25rem 0;
+    font-size: 0.95rem;
+  }
+  .formm-container .icon {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+  .formm-container .placeholder {
+    left: 1.7rem;
+    font-size: 0.95rem;
+  }
+  .formm-container .sign-btn,
+  .formm-container .google-btn {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+  }
+  .formm-container p {
+    font-size: 0.8rem;
+  }
+  .inputtt-group select,
+  .formm-container .inputtt-group input {
+    font-size: 0.95rem;
+    padding-left: 1.7rem;
+  }
+}
+
+.error-message {
+  color: #ff4444;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.field-error {
+  color: #ff4444;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  display: block;
+}
+
+input.error {
+  border-bottom: 1px solid #ff4444;
+}
+
+.sign-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.inputtt-group select {
+  color: #fff !important;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding-left: 3.5rem;
+  width: 100%;
+  font-weight: normal;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-left: 0;
+}
+
+.inputtt-group select option[value=""] {
+  color: #fff !important;
+  font-weight: normal;
+}
+
+.inputtt-group select option {
+  color: #333;
+  background: #fff;
+  font-weight: normal;
+}
+
+/* Remove underline for select fields */
+.inputtt-group select + .underline {
+  display: none !important;
+}
+
+.inputtt-group select:focus {
+  border-bottom-color: white;
+}
+
+.inputtt-group select.error {
+  border-bottom-color: #ff4444;
+}
+
+.inputtt-group select option {
+  background-color: #031344;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.inputtt-group select option:hover {
+  background-color: #052a6e;
+}
+
+/* Remove the custom dropdown arrow */
+.inputtt-group::after {
+  display: none;
+}
+
+/* Remove native dropdown arrow for IE/Edge */
+.inputtt-group select::-ms-expand {
+  display: none;
+}
+
+/* Remove native dropdown arrow for modern browsers */
+.inputtt-group select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+}
+
+.formm-container input,
+.formm-container select {
+  color: white !important;
+  background: transparent;
+}
+
+.formm-container input::placeholder {
+  padding-left: 0;
+  color: #fff !important;
+  opacity: 1;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.inputtt-group input {
+  padding-left: 2.7rem;
+}
+
+.inputtt-group .icon {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1.25rem;
+  pointer-events: none;
+}

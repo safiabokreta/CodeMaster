@@ -1,0 +1,43 @@
+.languages-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 90px;
+}
+
+.language-box {
+  padding: 10px 18px;
+  border-radius: 8px;
+  background-color: #031344;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.language-box:hover {
+  transform: translateY(-2px);
+}
+
+.highlighted {
+  background-color: #B75CFF;
+  color: white;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .languages-container {
+      gap: 8px;
+  }
+  .language-box {
+      padding: 8px 14px;
+      font-size: 13px;
+  }
+}

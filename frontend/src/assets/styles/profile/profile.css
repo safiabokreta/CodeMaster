@@ -1,0 +1,169 @@
+.profile-container {
+  display: flex;
+  height: 100vh;
+  background-color: #00103a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar reste à gauche */
+
+
+/* Conteneur principal à droite de la sidebar */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  margin-left: -80px;
+}
+
+/* Navbar à droite, sans marge */
+.navbar-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 20px 40px 0 0;
+}
+
+/* Contenu collé à gauche sans espace avec la sidebar */
+.profile-content { 
+  display: flex;
+  flex-direction: row;
+  align-items:flex-start;
+  padding: 30px;
+  padding-right: 0px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  max-width: 850px;
+  margin: 30px 0 0 0;
+  height: 110vh;
+  margin-left: 300px;
+  margin-bottom: 30px;
+
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 20px;
+  color: #082FA3;
+}
+
+.profile-main {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+/* Left Side - Image & Button */
+.profile-left {
+  flex-shrink: 0;
+}
+
+.profile-img-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #e8ddff;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.profile-img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.edit-photo-btn {
+  margin-top: 25px;
+  padding: 15px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Right Side - Details */
+.profile-right {
+  flex: 1;
+}
+
+.label {
+  font-size: 15px;
+  color: #082FA3;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.value {
+  font-size: 10px;
+  color: #222;
+  margin-bottom: 5px;
+  font-weight: 700;
+
+}
+.valuee {
+  font-size: 10px;
+
+  color: #787777;
+  margin-bottom: 5px;
+  font-weight: 700;
+
+}
+
+/* Edit Button */
+.edit-profile-btn {
+  margin-top: 20px;
+  padding: 10px 30px;
+  background-color: #00103a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.edit-profile-btn:hover {
+  background-color: #1a2a5c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-content {
+    margin-left: 70px;
+    padding: 20px;
+  }
+
+  .profile-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 200px;
+  }
+
+  .profile-right {
+    max-width: 100%;
+  }
+}
+
+/* Optional CSS (if Navbar looks too tight) */
+.profile-content > .navbar {
+  margin-right: 0px;
+}

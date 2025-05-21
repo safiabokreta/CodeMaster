@@ -1,0 +1,2 @@
+GET http://127.0.0.1:8000/courses/chapters_/1/?user_id=9
+Content-Type: application/json

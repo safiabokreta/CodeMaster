@@ -1,0 +1,131 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Change Email Address</h3>
+        </div>
+        <div class="card-body">
+            <form id="changeEmailForm">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="currentEmail" class="form-label">Current Email</label>
+                    <input type="email" class="form-control" id="currentEmail" value="{{ user.email }}" disabled>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="newEmail" class="form-label">New Email Address</label>
+                    <input type="email" class="form-control" id="newEmail" required>
+                </div>
+
+                <div id="verificationSection" style="display: none;">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        Verification codes have been sent. Please check both your current and new email addresses.
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="oldEmailCode" class="form-label">Code sent to current email</label>
+                        <input type="text" class="form-control" id="oldEmailCode" placeholder="Enter 6-digit code">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="newEmailCode" class="form-label">Code sent to new email</label>
+                        <input type="text" class="form-control" id="newEmailCode" placeholder="Enter 6-digit code">
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary" id="submitEmailChange">
+                        Send Verification Codes
+                    </button>
+                    <a href="{% url 'settings' %}" class="btn btn-secondary">Back to Settings</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .card-header {
+        background-color: #1a237e !important;
+    }
+    .form-label {
+        font-weight: 500;
+    }
+    #currentEmail {
+        background-color: #f8f9fa;
+    }
+</style>
+
+<script>
+document.getElementById('changeEmailForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const submitButton = document.getElementById('submitEmailChange');
+    const verificationSection = document.getElementById('verificationSection');
+    
+    if (verificationSection.style.display === 'none') {
+        // First step: Send verification codes
+        try {
+            const response = await fetch('{% url "change_email" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                },
+                body: JSON.stringify({
+                    new_email: document.getElementById('newEmail').value
+                })
+            });
+            
+            const data = await response.json();
+            if (response.ok) {
+                verificationSection.style.display = 'block';
+                submitButton.textContent = 'Verify Codes';
+                submitButton.classList.add('btn-success');
+                submitButton.classList.remove('btn-primary');
+            } else {
+                alert(data.error || 'An error occurred');
+            }
+        } catch (error) {
+            alert('An error occurred while sending the verification codes');
+        }
+    } else {
+        // Second step: Verify codes
+        try {
+            const response = await fetch('{% url "verify_email_change" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                },
+                body: JSON.stringify({
+                    old_email_code: document.getElementById('oldEmailCode').value,
+                    new_email_code: document.getElementById('newEmailCode').value
+                })
+            });
+            
+            const data = await response.json();
+            if (response.ok) {
+                if (data.message === 'Email successfully changed') {
+                    alert('Email has been successfully changed!');
+                    window.location.href = '{% url "settings" %}';
+                } else {
+                    alert(data.message);
+                }
+            } else {
+                alert(data.error || 'An error occurred');
+            }
+        } catch (error) {
+            alert('An error occurred while verifying the codes');
+        }
+    }
+});
+</script>
+{% endblock %} 

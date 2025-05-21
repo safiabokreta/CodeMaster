@@ -1,0 +1,18 @@
+.chapter-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    padding: 1.3rem 1rem;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0.15rem solid rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    width: 15rem;
+    cursor: default;
+    gap:1.5rem;
+    overflow: hidden;
+  }
+  

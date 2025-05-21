@@ -1,0 +1,129 @@
+<!-- backend/accounts/templates/accounts/profile.html -->
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<div class="profile-card">
+    <h1 class="profile-title">My Profile</h1>
+    
+    <div class="profile-info">
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Bio:</strong> {{ profile.bio }}</p>
+        <p><strong>English Level:</strong> {{ profile.english_level }}</p>
+        <p><strong>Programming Level:</strong> {{ profile.programming_level }}</p>
+    </div>
+
+    <div class="btn-container">
+        <a href="{% url 'edit_profile' %}" class="btn-edit">
+            <i class="fas fa-edit"></i> Edit Profile
+        </a>
+        <a href="{% url 'password_change' %}" class="btn-change-password">
+            <i class="fas fa-key"></i> Change Password
+        </a>
+        <a href="{% url 'settings' %}" class="btn-edit">
+            <i class="fas fa-cog"></i> Settings
+        </a>
+        
+        <!-- Change Email Button and Modal -->
+        <button type="button" class="btn-info" data-bs-toggle="modal" data-bs-target="#changeEmailModal">
+            Change Email
+        </button>
+    </div>
+</div>
+
+<!-- Change Email Modal -->
+<div class="modal fade" id="changeEmailModal" tabindex="-1" aria-labelledby="changeEmailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changeEmailModalLabel">Change Email</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="changeEmailForm">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="newEmail" class="form-label">New Email Address</label>
+                        <input type="email" class="form-control" id="newEmail" required>
+                    </div>
+                    <div id="verificationSection" style="display: none;">
+                        <div class="mb-3">
+                            <label for="oldEmailCode" class="form-label">Code sent to current email</label>
+                            <input type="text" class="form-control" id="oldEmailCode">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newEmailCode" class="form-label">Code sent to new email</label>
+                            <input type="text" class="form-control" id="newEmailCode">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitEmailChange">Send Verification Codes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add this script at the end of your template -->
+<script>
+document.getElementById('changeEmailForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const submitButton = document.getElementById('submitEmailChange');
+    const verificationSection = document.getElementById('verificationSection');
+    
+    if (verificationSection.style.display === 'none') {
+        // First step: Send verification codes
+        try {
+            const response = await fetch('{% url "change_email" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                },
+                body: JSON.stringify({
+                    new_email: document.getElementById('newEmail').value
+                })
+            });
+            
+            const data = await response.json();
+            if (response.ok) {
+                alert('Verification codes have been sent to both emails.');
+                verificationSection.style.display = 'block';
+                submitButton.textContent = 'Verify Codes';
+            } else {
+                alert(data.error || 'An error occurred');
+            }
+        } catch (error) {
+            alert('An error occurred while sending the verification codes');
+        }
+    } else {
+        // Second step: Verify codes
+        try {
+            const response = await fetch('{% url "verify_email_change" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                },
+                body: JSON.stringify({
+                    old_email_code: document.getElementById('oldEmailCode').value,
+                    new_email_code: document.getElementById('newEmailCode').value
+                })
+            });
+            
+            const data = await response.json();
+            if (response.ok) {
+                if (data.message === 'Email successfully changed') {
+                    alert('Email has been successfully changed!');
+                    window.location.reload();
+                } else {
+                    alert(data.message);
+                }
+            } else {
+                alert(data.error || 'An error occurred');
+            }
+        } catch (error) {
+            alert('An error occurred while verifying the codes');
+        }
+    }
+});</script>
+{% endblock %}

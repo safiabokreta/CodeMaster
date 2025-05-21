@@ -1,0 +1,158 @@
+.navbar-wrapper10 {
+
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 1050px;
+}
+
+.profile10-container{
+  display: flex;
+  width: 150px;
+  min-height: 100vh;
+  background-color: #00103a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+.profile10-content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  margin-left: 300px !important;
+  align-items:flex-start;
+  padding: 100px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  max-width: 700px;
+  height: auto;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+
+.delete-10{
+  margin: auto;
+}
+
+
+.form10-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  width: 200px;
+
+}
+
+.but10{
+  padding-top: 10px;
+  margin-bottom: 0px !important;
+
+}
+.input-field {
+  width:fit-content ;
+  padding: 18px !important; /* Increase padding */
+  border-radius: 10px !important;
+  border: none !important; /* Transparent border */
+  font-family: inherit;
+  resize: none;
+  background-color: #f0f0f0 !important; /* Light background for the input fields */
+}
+
+.input-field:disabled {
+  background-color: #eee !important;
+  color: #888 !important;
+  cursor: not-allowed !important;
+}
+
+.save-btn {
+  background-color: #8b5cf6 !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 25px !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: 0.10s ease !important;
+  margin-bottom: 0px !important;
+
+}
+
+.save-btn:hover {
+  background-color: #6d28d9 !important;
+}
+.labell10 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.labelll10{
+  font-size: 15px;
+  margin-bottom: 8px;
+  font-weight: bold;
+
+}
+.input-field {
+  width: 20% !important;         /* Change from 100% to 60% */
+  padding: 10px !important;      /* Reduce padding from 18px to 10px */
+  border-radius: 8px !important; /* Optional: make corners slightly smaller */
+}
+
+.profile10-main {
+  display: flex;
+  flex-direction: row;
+  width: auto !important;
+  height:auto !important;
+  margin-right: 60px;
+
+}
+.edit-form10{
+  height: auto !important;
+  margin-bottom: 0px !important;
+  padding-left: 100px;
+}
+
+/* Navbar à droite, sans marge */
+.navbar-wrapper10 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0px 0px 0px -100px;
+}
+.button-group {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  position: relative;
+  margin-top: 10px;
+}
+
+
+.savee-btn {
+  background-color: #FF5A5A !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 10px !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: 0.3s ease !important;
+
+}
+
+
+
+.save-btnn {
+  margin-top: 10px;
+  background-color:blue !important;
+  color: rgb(0, 0, 0) !important;
+  border: none !important;
+  padding: 12px 10px !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: 0.3s ease !important;
+  
+}

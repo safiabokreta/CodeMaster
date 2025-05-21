@@ -1,0 +1,91 @@
+/* Dashboard Styles */
+body {
+    background: #f8f9fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 32px 40px 40px 40px;
+}
+
+h1 {
+    font-family: 'Luckiest Guy', cursive, sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    color: #22223b;
+    letter-spacing: 1px;
+}
+
+.course-list {
+    margin-bottom: 24px;
+}
+
+.course-list a {
+    color: #3a86ff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 16px;
+    transition: color 0.2s;
+}
+
+.course-list a:hover {
+    color: #4361ee;
+    text-decoration: underline;
+}
+
+.selected-course {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #22223b;
+    margin-bottom: 18px;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: #3a0ca3;
+}
+
+.progress-bar {
+    background: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 18px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, #3a86ff 0%, #4361ee 100%);
+    border-radius: 8px 0 0 8px;
+    transition: width 0.5s;
+}
+
+.chapter-progress {
+    margin-bottom: 18px;
+}
+
+.chapter-title {
+    font-weight: 500;
+    color: #22223b;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 800px) {
+    .dashboard-container {
+        padding: 18px 8px 24px 8px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+} 

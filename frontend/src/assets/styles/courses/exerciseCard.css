@@ -1,0 +1,39 @@
+.exercise-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0.1rem solid white;
+    border-radius: 12px;
+    padding: 16px;
+    color: white;
+    width: 19rem;
+    height: 4rem; /* Reduced height for just title + stars */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    cursor: pointer;
+}
+
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centers items vertically in the header */
+}
+
+.exercise-title {
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0; /* Remove default margins */
+}
+
+.exercise-rating {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.star {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.star.filled {
+    color: gold;
+}

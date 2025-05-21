@@ -1,0 +1,44 @@
+body {
+  background-color: rgb(3, 19, 68);
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100vh;
+  background: url('/src/assets/images/image.svg') center/cover no-repeat;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.about-container {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  width: 100vw;
+  margin: auto;
+  overflow-y: auto;
+  max-height:75vh;
+}
+
+h1, h2, h3 {
+  color: #ffffff;
+}
+
+p, ul {
+  line-height: 1.6;
+}
+
+.about-container ul {
+  list-style-type: none; /* Removes the bullet points */
+  padding-left: 0; /* Ensures no extra indentation */
+}
